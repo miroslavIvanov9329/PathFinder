@@ -10,7 +10,7 @@ import java.util.Set;
 @Table(name = "routes")
 public class Route extends BaseEntity {
     
-    @Column(name = "gpx_coordinates", columnDefinition = "TEXT")
+    @Column(name = "gpx_coordinates", columnDefinition = "LONGTEXT")
     private String gpxCoordinates;
     
     @Enumerated(EnumType.STRING)
@@ -18,6 +18,9 @@ public class Route extends BaseEntity {
     
     @Column(nullable = false)
     private String name;
+    
+    @Column(nullable = false, columnDefinition = "TEXT")
+    private String description;
     
     @ManyToOne
     private User author;
@@ -78,5 +81,13 @@ public class Route extends BaseEntity {
     
     public void setCategories(Set<Categories> categories) {
         this.categories = categories;
+    }
+    
+    public String getDescription() {
+        return description;
+    }
+    
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

@@ -25,6 +25,8 @@ public class User extends BaseEntity {
     @Size(min = 2)
     private String fullName;
     
+    private int age;
+    
     @Column(nullable = false, unique = true)
     @Email
     private String email;
@@ -85,5 +87,13 @@ public class User extends BaseEntity {
     
     public void setLevel(UserLevel level) {
         this.level = level;
+    }
+    
+    public int getAge() {
+        return age;
+    }
+    
+    public void setAge(int age) {
+        this.age = age;
     }
 }
