@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Navigation</title>
+</head>
+<body>
+    <nav    th:fragment="nav"
+            class="main-nav">
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li th:unless="${@currentUser.isLogged}">
+                <a th:href="@{/users/login}">Login</a>
+            </li>
+            <li th:unless="${@currentUser.isLogged}">
+                <a th:href="@{/users/register}">Register</a>
+            </li>
+            <li>
+                <a th:href="@{/about}">About</a>
+            </li>
+            <li>
+                <a href="/">Add new route</a>
+            </li>
+            <li>
+                <a href="/">Profile</a>
+            </li>
+            <li th:if="${@currentUser.getUserRole} == ADMIN">
+                <a href="/">Admin</a>
+            </li>
+            <li th:if="${@currentUser.isLogged}">
+                <a th:href="@{/logout}">Logout</a>
+            </li>
+
+            <li>
+                <th:block
+                        th:text="${@currentUser.username} == null ? 'Hi, user' : 'Hi, ' + ${@currentUser.username}"></th:block>
+            </li>
+        </ul>
+    </nav>
+</body>
+</html>
