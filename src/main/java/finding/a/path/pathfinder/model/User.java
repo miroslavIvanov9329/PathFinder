@@ -1,7 +1,6 @@
 package finding.a.path.pathfinder.model;
 
-import finding.a.path.pathfinder.enums.UserLevel;
-import finding.a.path.pathfinder.enums.UserRoles;
+import finding.a.path.pathfinder.enums.Level;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
@@ -35,7 +34,7 @@ public class User extends BaseEntity {
     private Set<Role> roles;
     
     @Enumerated(EnumType.STRING)
-    private UserLevel level;
+    private Level level;
     
     public User() {
         this.roles = new HashSet<>();
@@ -81,11 +80,11 @@ public class User extends BaseEntity {
         this.roles = role;
     }
     
-    public UserLevel getLevel() {
+    public Level getLevel() {
         return level;
     }
     
-    public void setLevel(UserLevel level) {
+    public void setLevel(Level level) {
         this.level = level;
     }
     

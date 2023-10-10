@@ -1,6 +1,6 @@
 package finding.a.path.pathfinder.model;
 
-import finding.a.path.pathfinder.enums.CategoryName;
+import finding.a.path.pathfinder.enums.Category;
 import jakarta.persistence.*;
 
 @Entity
@@ -9,16 +9,16 @@ public class Categories extends BaseEntity{
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private CategoryName name;
+    private Category name;
     
     @Column(nullable = false, columnDefinition = "TEXT")
     private String description;
     
-    public CategoryName getName() {
+    public Category getName() {
         return name;
     }
     
-    public void setName(CategoryName name) {
+    public void setName(Category name) {
         this.name = name;
     }
     

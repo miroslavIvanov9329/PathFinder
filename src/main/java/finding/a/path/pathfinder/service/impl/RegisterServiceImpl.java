@@ -1,6 +1,6 @@
 package finding.a.path.pathfinder.service.impl;
 
-import finding.a.path.pathfinder.enums.UserLevel;
+import finding.a.path.pathfinder.enums.Level;
 import finding.a.path.pathfinder.model.User;
 import finding.a.path.pathfinder.model.dto.UserRegisterDTO;
 import finding.a.path.pathfinder.repository.UserRepository;
@@ -13,12 +13,10 @@ import org.springframework.stereotype.Service;
 public class RegisterServiceImpl implements RegisterService {
     
     private final UserRepository userRepository;
-    private final ModelMapper modelMapper;
     private final Pbkdf2PasswordEncoder passwordEncoder;
     
-    public RegisterServiceImpl(UserRepository userRepository, ModelMapper modelMapper, Pbkdf2PasswordEncoder passwordEncoder) {
+    public RegisterServiceImpl(UserRepository userRepository, Pbkdf2PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
-        this.modelMapper = modelMapper;
         this.passwordEncoder = passwordEncoder;
     }
     
@@ -26,7 +24,7 @@ public class RegisterServiceImpl implements RegisterService {
     public void register(UserRegisterDTO userRegisterDTO) {
         User user = new User();
         
-        user.setLevel(UserLevel.BEGINNER);
+        user.setLevel(Level.BEGINNER);
         user.setUsername(userRegisterDTO.username());
         user.setFullName(userRegisterDTO.fullName());
         user.setEmail(userRegisterDTO.email());

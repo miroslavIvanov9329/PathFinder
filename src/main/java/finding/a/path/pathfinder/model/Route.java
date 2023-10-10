@@ -1,8 +1,10 @@
 package finding.a.path.pathfinder.model;
 
-import finding.a.path.pathfinder.enums.UserLevel;
+import finding.a.path.pathfinder.enums.Category;
+import finding.a.path.pathfinder.enums.Level;
 import jakarta.persistence.*;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,7 +16,7 @@ public class Route extends BaseEntity {
     private String gpxCoordinates;
     
     @Enumerated(EnumType.STRING)
-    private UserLevel level;
+    private Level level;
     
     @Column(nullable = false)
     private String name;
@@ -43,11 +45,11 @@ public class Route extends BaseEntity {
         this.gpxCoordinates = gpxCoordinates;
     }
     
-    public UserLevel getLevel() {
+    public Level getLevel() {
         return level;
     }
     
-    public void setLevel(UserLevel level) {
+    public void setLevel(Level level) {
         this.level = level;
     }
     
@@ -89,5 +91,9 @@ public class Route extends BaseEntity {
     
     public void setDescription(String description) {
         this.description = description;
+    }
+    
+    public void addCategories(Set<Categories> categories) {
+        this.categories.addAll(categories);
     }
 }

@@ -1,5 +1,7 @@
 package finding.a.path.pathfinder.enums;
 
-public enum UserLevel {
+import java.util.List;
+
+public enum Level {
     BEGINNER, INTERMEDIATE, ADVANCED
 }
